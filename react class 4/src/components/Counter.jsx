@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function Counter() {
-  // useState Hook: count variable hai, setCount function hai jo value change karega
+  
   const [count, setCount] = useState(0);
 
   return (
