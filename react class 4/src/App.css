@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  color: #222;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+/* Navbar */
+
+.navbar {
+  background: #111827;
+  color: white;
+  padding: 18px 8%;
+}
+
+.navbar h2 {
+  font-size: 24px;
+}
+
+/* Container */
+
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+/* Form */
+
+.post-form {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.post-form h1 {
+  margin-bottom: 8px;
+}
+
+.post-form p {
+  color: #777;
+  margin-bottom: 25px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 18px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #2563eb;
+}
+
+textarea {
+  height: 130px;
+  resize: none;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+/* Posts */
+
+.posts-section {
+  margin-top: 40px;
+}
+
+.posts-section > h2 {
+  margin-bottom: 20px;
+}
+
+.post-card {
+  background: white;
+  padding: 22px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border-left: 4px solid #2563eb;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.post-card h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.post-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Empty */
+
+.empty {
+  background: white;
+  text-align: center;
+  padding: 35px;
+  border-radius: 10px;
+  color: #777;
+}
+
+.empty p {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.empty span {
+  font-size: 14px;
+}
