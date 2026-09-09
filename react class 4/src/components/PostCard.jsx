@@ -6,7 +6,7 @@ function PostCard({
   handleDelete,
 }) {
   return (
-    <article className="group rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400/20 hover:bg-white/[0.06]">
+    <article className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400/20 hover:bg-white/[0.06]">
 
       {/* Top */}
       <div className="mb-5 flex items-start justify-between gap-4">
