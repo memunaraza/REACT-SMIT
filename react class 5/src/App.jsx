@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 
 function App() {
   const [users, setUsers] = useState([])
-  const [loading, setLoading] = useState(true) // Loading track karne ke liye
-  const [error, setError] = useState(null)     // Error track karne ke liye
+  const [loading, setLoading] = useState(true) 
+  const [error, setError] = useState(null)     
 
   useEffect(() => {
-    // API Call
+    
     fetch('https://jsonplaceholder.typicode.com/users')
       .then((res) => {
         if (!res.ok) {
@@ -15,26 +15,26 @@ function App() {
         return res.json()
       })
       .then((data) => {
-        setUsers(data)        // Data aa gaya, state mein set kar diya
-        setLoading(false)     // Loading ko band kar diya
+        setUsers(data)       
+        setLoading(false)     
       })
       .catch((err) => {
-        setError(err.message) // Agar error aaye toh save kar lo
-        setLoading(false)     // Loading band kar do
+        setError(err.message) 
+        setLoading(false)     
       })
-  }, []) // Khali array: Sirf ek baar chalega jab component load hoga
+  }, []) 
 
-  // 1. Agar data load ho raha ho:
+  
   if (loading) {
     return <h2>Loading Users... Barae meharbani intezaar karen.</h2>
   }
 
-  // 2. Agar koi error aa jaye:
+  
   if (error) {
     return <h2 style={{ color: 'red' }}>Error: {error}</h2>
   }
 
-  // 3. Jab data successfully aa jaye:
+  
   return (
     <div>
       <h1>User List (useEffect)</h1>
