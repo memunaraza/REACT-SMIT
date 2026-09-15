@@ -11,7 +11,7 @@ export default function App() {
       { id: 2, title: 'Grocery & Supplies', content: 'Coffee beans, oat milk, dark chocolate, and notebooks.', category: 'Personal', date: 'Sep 10, 2026' }
     ];
   });
-  
+
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('Work');
@@ -27,7 +27,7 @@ export default function App() {
     if (!title.trim() || !content.trim()) return;
 
     if (editingId) {
-      setNotes(notes.map(note => 
+      setNotes(notes.map(note =>
         note.id === editingId ? { ...note, title, content, category } : note
       ));
       setEditingId(null);
@@ -62,7 +62,7 @@ export default function App() {
     setContent('');
   };
 
-  const filteredNotes = notes.filter(note => 
+  const filteredNotes = notes.filter(note =>
     note.title.toLowerCase().includes(search.toLowerCase()) ||
     note.content.toLowerCase().includes(search.toLowerCase())
   );
@@ -70,13 +70,13 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#0a0a0c] text-neutral-200 font-sans selection:bg-indigo-500/30 selection:text-indigo-200 p-4 md:p-8">
       <div className="max-w-5xl mx-auto space-y-8">
-        
+
         <Navbar search={search} setSearch={setSearch} />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          
+
           <div className="lg:col-span-1">
-            <NoteForm 
+            <NoteForm
               title={title}
               setTitle={setTitle}
               content={content}
@@ -97,11 +97,11 @@ export default function App() {
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {filteredNotes.map((note) => (
-                  <NoteCard 
-                    key={note.id} 
-                    note={note} 
-                    handleEdit={handleEdit} 
-                    handleDelete={handleDelete} 
+                  <NoteCard
+                    key={note.id}
+                    note={note}
+                    handleEdit={handleEdit}
+                    handleDelete={handleDelete}
                   />
                 ))}
               </div>
