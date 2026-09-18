@@ -10,8 +10,8 @@ function App() {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then((res) => {
         if (!res.ok) {
-          throw new Error('Data load nahi ho saka!')
-          /        }
+          throw new Error('The data is not loading.!')
+         }
         return res.json()
       })
       .then((data) => {
@@ -26,7 +26,7 @@ function App() {
 
 
   if (loading) {
-    return <h2>Loading Users... Barae meharbani intezaar karen.</h2>
+    return <h2>Loading Users... wait.</h2>
   }
 
 
