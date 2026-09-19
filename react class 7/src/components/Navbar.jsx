@@ -1,28 +1,62 @@
-import React from 'react';
-
-const Navbar = ({ searchQuery, setSearchQuery }) => {
+export default function Navbar({ activeTab, setActiveTab, favoritesCount }) {
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
-      <div>
-        <h1 className="text-3xl font-extrabold tracking-wider bg-gradient-to-r from-cyan-400 to-indigo-500 bg-clip-text text-transparent">
-          CYBER GALLERY
-        </h1>
-        <p className="text-sm text-slate-400 mt-1">
-          Explore stunning photography powered by React & Tailwind CSS
-        </p>
-      </div>
+    <header className="bg-white/90 backdrop-blur-md border-b border-red-100 sticky top-0 z-40 shadow-xs">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 h-16 flex items-center justify-between">
+        <div 
+          className="flex items-center gap-3 cursor-pointer group" 
+          onClick={() => setActiveTab('home')}
+        >
+          <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-red-500 to-rose-600 flex items-center justify-center text-white shadow-md shadow-red-500/20 group-hover:scale-105 transition">
+            <span className="text-xl">🔴⚪</span>
+          </div>
+          <div>
+            <h1 className="text-xl font-extrabold tracking-tight text-slate-900 leading-none">
+              Poke<span className="text-red-500">Dex</span>
+            </h1>
+            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Pro v2</span>
+          </div>
+        </div>
 
-      <div className="w-full md:w-auto">
-        <input
-          type="text"
-          placeholder="Search aesthetics..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full md:w-80 px-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-800 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500 text-sm text-slate-200 backdrop-blur-md transition-all shadow-inner"
-        />
+        <nav className="flex items-center gap-2">
+          <button
+            onClick={() => setActiveTab('home')}
+            className={`px-4 py-2 rounded-xl text-sm font-semibold transition ${
+              activeTab === 'home'
+                ? 'bg-red-50 text-red-600 border border-red-200 shadow-xs'
+                : 'text-slate-600 hover:bg-slate-100'
+            }`}
+          >
+            Explorer
+          </button>
+          
+          <button
+            onClick={() => setActiveTab('favorites')}
+            className={`px-4 py-2 rounded-xl text-sm font-semibold transition relative ${
+              activeTab === 'favorites'
+                ? 'bg-red-50 text-red-600 border border-red-200 shadow-xs'
+                : 'text-slate-600 hover:bg-slate-100'
+            }`}
+          >
+            Favorites
+            {favoritesCount > 0 && (
+              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">
+                {favoritesCount}
+              </span>
+            )}
+          </button>
+
+          <button
+            onClick={() => setActiveTab('about')}
+            className={`px-4 py-2 rounded-xl text-sm font-semibold transition ${
+              activeTab === 'about'
+                ? 'bg-red-50 text-red-600 border border-red-200 shadow-xs'
+                : 'text-slate-600 hover:bg-slate-100'
+            }`}
+          >
+            About
+          </button>
+        </nav>
       </div>
-    </div>
+    </header>
   );
-};
-
-export default Navbar;
+}
