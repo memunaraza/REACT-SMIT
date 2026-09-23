@@ -1,14 +1,22 @@
-import React from 'react';
+import React from 'react'
 
-const Nabbar2 = ({ theme, user, setTheme }) => {
+const Navbar2 = ({ theme, setTheme }) => {
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light')
+  }
+
   return (
-    <div className="sub-navbar">
-      <span>Badges: {user.badgeCount}</span>
-      <button onClick={() => setTheme(theme === 'pokemon-electric' ? 'dark-obsidian' : 'pokemon-electric')}>
-        Toggle Theme
+    <div className={`p-4 rounded-xl text-center transition-all duration-300 ${theme === 'light' ? 'bg-slate-50' : 'bg-slate-900'}`}>
+      <p className="text-sm mb-4">NavChild Component (Deepest Child)</p>
+      
+      <button 
+        onClick={toggleTheme}
+        className="px-5 py-2.5 rounded-xl font-medium shadow-md transition-all duration-200 bg-indigo-600 text-white hover:bg-indigo-700 active:scale-95 cursor-pointer"
+      >
+        Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default Nabbar2;
+export default Navbar2
