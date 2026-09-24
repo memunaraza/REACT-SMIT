@@ -1,30 +1,41 @@
-import React from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
-const Navbar = () => {
-  const location = useLocation()
-  let activeStyle ="underline font-bold text-cyan-300"
+function Navbar() {
+  const [open, setOpen] = useState(false);
+  const linkClass = ({ isActive }) =>
+    `block px-4 py-2 md:px-0 md:py-0 text-sm ${isActive ? "text-ink border-b border-accent" : "text-ink/60 hover:text-ink"}`;
+
   return (
-    <nav className='flex justify-between px-4 bg-cyan-800 text-amber-50 p-3'>
-        <h2 className='text-3xl'>Smit</h2>
-        {/* <div>
-          <Link className={`${location.pathname =="/" ?"underline":""} m-3`} to="/">Home</Link>
-          <Link className={`${location.pathname =="/about" ?"underline":""} m-3`} to="/about">About Us</Link>
-          <Link className={`${location.pathname =="/product" ?"underline":""} m-3`} to="/product">Product</Link>
-          <Link className={`${location.pathname =="/courses" ?"underline":""} m-3`} to="/courses">Courses</Link>
-          <Link className={`${location.pathname =="/contact" ?"underline":""} m-3`} to="/contact">Contact Us</Link>
-        </div> */}
-        <div>
-        <NavLink className={({isActive})=> isActive ?activeStyle :"m-3"}  to="/">Home</NavLink>
-        <NavLink className={({isActive})=> isActive ? activeStyle:"m-3"} to="/about">About</NavLink>
-        <NavLink className={({isActive})=> isActive ? activeStyle:"m-3"} to="/product">Product</NavLink>
-        <NavLink className={({isActive})=> isActive ? activeStyle:"m-3"} to="/courses">Courses</NavLink>
-        <NavLink className={({isActive})=> isActive ? "underline font-bold text-cyan-300":"m-3"} to="/contact">Contact Us</NavLink>
-
-        </div>
-        
-      </nav>
-  )
+    <header className="sticky top-0 z-50 bg-[#fbfaf7] border-b border-black/10">
+      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <Link to="/" className="font-display text-xl">Aurel &amp; Co.</Link>
+        <nav className="hidden md:flex gap-8">
+          <NavLink to="/" end className={linkClass}>Home</NavLink>
+          <NavLink to="/men" className={linkClass}>Men</NavLink>
+          <NavLink to="/women" className={linkClass}>Women</NavLink>
+          <NavLink to="/courses" className={linkClass}>Courses</NavLink>
+          <NavLink to="/about" className={linkClass}>About</NavLink>
+          <NavLink to="/contact" className={linkClass}>Contact</NavLink>
+        </nav>
+        <button className="md:hidden flex flex-col gap-1.5 p-1" onClick={() => setOpen(!open)}>
+          <span className="w-5 h-0.5 bg-ink" />
+          <span className="w-5 h-0.5 bg-ink" />
+          <span className="w-5 h-0.5 bg-ink" />
+        </button>
+      </div>
+      {open && (
+        <nav className="md:hidden border-t border-black/10">
+          <NavLink to="/" end className={linkClass} onClick={() => setOpen(false)}>Home</NavLink>
+          <NavLink to="/men" className={linkClass} onClick={() => setOpen(false)}>Men</NavLink>
+          <NavLink to="/women" className={linkClass} onClick={() => setOpen(false)}>Women</NavLink>
+          <NavLink to="/courses" className={linkClass} onClick={() => setOpen(false)}>Courses</NavLink>
+          <NavLink to="/about" className={linkClass} onClick={() => setOpen(false)}>About</NavLink>
+          <NavLink to="/contact" className={linkClass} onClick={() => setOpen(false)}>Contact</NavLink>
+        </nav>
+      )}
+    </header>
+  );
 }
 
-export default Navbar
+export default Navbar;

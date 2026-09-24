@@ -1,23 +1,18 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const NavigateBtns = () => {
-    const navigate = useNavigate()
-   function backClicked(){
-    console.log("back");
-    navigate(-1)
-   }
-   function nextClicked(){
-    console.log("next");
-    navigate("/")
-
-   }
+function NavigateBtns() {
+  const navigate = useNavigate();
   return (
-    <div className='flex justify-between m-4'>
-        <button className='border-2 py-2 px-5 rounded ' onClick={backClicked}>Back</button>
-        <button className='border-2 py-2 px-5 rounded ' onClick={nextClicked}>Back to home</button>
+    <div className="flex gap-4">
+      <button onClick={() => navigate("/men")} className="px-8 py-3 rounded-md bg-ink text-white text-sm hover:bg-accent-dark transition-colors">
+        Men
+      </button>
+      <button onClick={() => navigate("/women")} className="px-8 py-3 rounded-md border border-black/15 text-ink text-sm hover:border-ink transition-colors">
+        Women
+      </button>
     </div>
-  )
+  );
 }
 
-export default NavigateBtns
+export default NavigateBtns;
