@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Women({ products }) {
+function Women({ products = [] }) {
   return (
     <div className="max-w-6xl mx-auto px-6 py-12">
       <span className="text-accent text-sm">Womenswear</span>
       <h1 className="font-display text-3xl mt-1 mb-8 text-ink">Women's Collection</h1>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((item) => (
-          <Link to={`/men/${item.id}`} key={item.id} className="rounded-lg border border-black/10 bg-white shadow-sm hover:shadow-md hover:-translate-y-1 transition-all overflow-hidden block">
+          <Link to={`/women/${item.id}`} key={item.id} className="rounded-lg border border-black/10 bg-white shadow-sm hover:shadow-md hover:-translate-y-1 transition-all overflow-hidden block">
             <div className="aspect-[4/5] bg-[#f4f2ee]">
               <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
             </div>

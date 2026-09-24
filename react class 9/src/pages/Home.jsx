@@ -1,27 +1,31 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import NavigateBtns from "../components/NavigateBtns";
 
-function Men({ products }) {
+function Home() {
   return (
-    <div className="max-w-6xl mx-auto px-6 py-12">
-      <span className="text-accent text-sm">Menswear</span>
-      <h1 className="font-display text-3xl mt-1 mb-8 text-ink">Men's Collection</h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-        {products.map((item) => (
-          <Link to={`/men/${item.id}`} key={item.id} className="rounded-lg border border-black/10 bg-white shadow-sm hover:shadow-md hover:-translate-y-1 transition-all overflow-hidden block">
-            <div className="aspect-[4/5] bg-[#f4f2ee]">
-              <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
-            </div>
-            <div className="p-4">
-              <span className="text-xs text-ink/50 bg-[#f4f2ee] px-2 py-0.5 rounded">{item.category}</span>
-              <h3 className="mt-2 font-medium text-ink">{item.name}</h3>
-              <p className="mt-1 font-semibold text-accent">Rs. {item.price}</p>
-            </div>
-          </Link>
-        ))}
-      </div>
+    <div>
+      <section className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 className="font-display text-4xl md:text-5xl leading-tight text-ink">
+            Clothing that fits <br /> how you actually live.
+          </h1>
+          <p className="mt-4 text-ink/60 max-w-md">
+            Two curated collections, no clutter. Pick a side and start browsing.
+          </p>
+          <div className="mt-8">
+            <NavigateBtns />
+          </div>
+        </div>
+        <div className="aspect-[4/5] rounded-lg overflow-hidden">
+          <img src="https://picsum.photos/seed/hero/800/1000" alt="Aurel & Co. collection" className="w-full h-full object-cover" />
+        </div>
+      </section>
+      <section className="max-w-6xl mx-auto px-6 pb-20 text-center">
+        <h2 className="font-display text-2xl text-ink">Two collections, kept simple.</h2>
+        <p className="mt-2 text-ink/60">No overwhelming catalog — just the pieces worth wearing, sorted by who they're for.</p>
+      </section>
     </div>
   );
 }
 
-export default Men;
+export default Home;

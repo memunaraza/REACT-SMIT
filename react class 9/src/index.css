@@ -1,1 +1,14 @@
-@import "tailwindcss";
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #fbfaf7;
+  color: #201e1b;
+}
+
+h1, h2, h3 {
+  font-family: "Fraunces", Georgia, serif; */
+
+  @import "tailwindcss";

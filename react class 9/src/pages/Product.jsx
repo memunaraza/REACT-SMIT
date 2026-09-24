@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 
-function Product({ products }) {
+function Product({ products = [] }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const product = products.find((item) => item.id === Number(id));
