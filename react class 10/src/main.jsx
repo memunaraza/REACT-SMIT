@@ -1,11 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import ThemeContext from './Context/ThemeContext.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App";
 
-createRoot(document.getElementById('root')).render(
-  <ThemeContext>
-    <App/>
-  </ThemeContext>
-)
+import { UserProvider } from "./Context/UserContext";
+import { ThemeProvider } from "./Context/ThemeContext";
+
+import "./index.css";
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <UserProvider>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </UserProvider>
+  </StrictMode>
+);

@@ -1,18 +1,17 @@
-import React from 'react'
+import { createContext, useState } from "react";
 
-//create context
-//provide dtaa
-//use data
-export const PostDataContext = createContext()
-const ThemeContext = (props) => {
+export const ThemeContext = createContext();
+
+export const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
   return (
-    <div>
-        <PostDataContext.provider value>
-             {props.children}
-        </PostDataContext.provider>
-     
-    </div>
-  )
-}
-
-export default ThemeContext
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};

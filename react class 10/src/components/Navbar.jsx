@@ -1,15 +1,23 @@
-import React from 'react'
-import Navbar2 from './Navbar2' 
+import { useContext } from "react";
+import { UserContext } from "../Context/UserContext";
 
-const Navbar = ({ theme, setTheme }) => {
+const Navbar = () => {
+  const user = useContext(UserContext);
+
   return (
-    <nav className={`w-full max-w-md p-6 rounded-2xl shadow-lg border transition-all duration-300 ${theme === 'light' ? 'bg-white border-slate-200' : 'bg-slate-800 border-slate-700'}`}>
-      <h2 className="text-xl font-semibold mb-4 text-center">Navbar Component (Middle)</h2>
-      
-      {/* Drilling props further down */}
-      <Navbar2 theme={theme} setTheme={setTheme} />
-    </nav>
-  )
-}
+    <nav className="flex items-center justify-between bg-slate-900 px-8 py-5 text-white shadow-lg">
+      <h2 className="text-xl font-bold">Student Dashboard</h2>
 
-export default Navbar
+      <div className="text-right">
+        <p className="text-sm">
+          Welcome, <span className="font-semibold">{user.name}</span>
+        </p>
+        <p className="text-xs text-slate-300">
+          Role: {user.role}
+        </p>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
