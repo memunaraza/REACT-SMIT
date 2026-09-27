@@ -2,7 +2,7 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
 export const coursesData = [
-  { id: 1, title: "React Fundamentals", instructor: "Ayesha Khan", duration: "6 weeks", description: "Learn components, props, state, and hooks from the ground up." },
+  { id: 1, title: "React Fundamentals ", instructor: "Ayesha Khan", duration: "6 weeks", description: "Learn components, props, state, and hooks from the ground up." },
   { id: 2, title: "React Router Deep Dive", instructor: "Bilal Ahmed", duration: "3 weeks", description: "Dynamic routes, nested routes, and protected routes explained clearly." },
   { id: 3, title: "Styling with Tailwind CSS", instructor: "Sara Malik", duration: "4 weeks", description: "Build clean, responsive UIs fast using utility classes." },
 ];
